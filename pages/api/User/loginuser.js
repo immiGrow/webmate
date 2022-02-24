@@ -9,15 +9,15 @@ export default async function loginUser(req, res) {
         const { cookies } = req;
         const jsonweb = cookies.AuthToken;
 
-        const serialized = serialize("AuthToken", null, {
+        const serialized = await serialize("AuthToken", null, {
             httpOnly: true,
             secure: process.env.NODE_ENV !== "development",
             sameSite: "strict",
             maxAge: -1,
             path: "/"
         })
-        res.setHeader('Set-Cookie', serialized)
-        res.status(200).json({
+        await res.setHeader('Set-Cookie', serialized)
+        await res.status(200).json({
             success: true,
             message: "You are successfully Logged out !!"
         })
@@ -54,14 +54,14 @@ export default async function loginUser(req, res) {
 
         }
         const authtoken = await jwt.sign(data, JWT)
-        const serialized = serialize("AuthToken", authtoken, {
+        const serialized = await serialize("AuthToken", authtoken, {
             httpOnly: true,
             secure: process.env.NODE_ENV !== "development",
             sameSite: "strict",
             maxAge: 60 * 60 * 24 * 30,
             path: "/"
         })
-        res.setHeader('Set-Cookie', serialized)
-        res.json({ success: true, authtoken, email })
+        await res.setHeader('Set-Cookie', serialized)
+        await res.json({ success: true, authtoken, email })
     }
 }

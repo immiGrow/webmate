@@ -47,9 +47,9 @@ const createNewUser = async(req, res) => {
         user: newAddedUser._id
     }
     console.log(data)
-    const authtoken = jwt.sign(data, JWT)
+    const authtoken = await jwt.sign(data, JWT)
 
-    res.status(200).json({
+    await res.status(200).json({
         authtoken,
         newAddedUser
     })
