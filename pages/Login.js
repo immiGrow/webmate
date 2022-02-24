@@ -23,7 +23,7 @@ function Login() {
    e.preventDefault();
   
 
-    if(!cred.email || !cred.password || !profile){
+    if(!cred.email || !cred.password ){
       alert("Please fill all credentials")
     }
    

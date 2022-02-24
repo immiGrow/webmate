@@ -3,19 +3,19 @@ import React, { useState } from "react";
 import baseUrl from "../mongodb/baseUrl";
 import {useRouter} from 'next/router'
 import Footer from "../Components/Footer";
-
+import styles from '../styles/Home.module.css'
 const cloudUrl = "https://api.cloudinary.com/v1_1/angusimage/image/upload";
 
 function UploadImage() {
   const router =useRouter()
- 
+
   const [details, setDetails] = useState({
     imagename: "",
     owner: "",
     category: "",
     description: "",
   });
-  const [url, setUrl] = useState("");
+  const [url, setUrl] = useState([]);
   const onChange = (e) => {
     setDetails({ ...details, [e.target.name]: e.target.value });
   };
@@ -62,13 +62,14 @@ function UploadImage() {
  
   return (
     <>
-    <div>
+    <div className={styles.userlog}>
+    <h1>Upload Your Images To Immi<span className={styles.tag}>Grow</span></h1>
       <form
         onSubmit={(e) => {
           handleSubmit(e);
         }}
       >
-        
+         <div className={styles.email}>
         <label htmlFor="name"> Image Name </label>
         <input
           type="text"
@@ -76,6 +77,8 @@ function UploadImage() {
           value={details.imagename}
           onChange={onChange}
         />
+        </div>
+        <div className={styles.email}>
         <label htmlFor="bname"> Photographer Name  </label>
         <input
           type="text"
@@ -83,6 +86,8 @@ function UploadImage() {
           value={details.owner}
           onChange={onChange}
         />
+        </div>
+        <div className={styles.email}>
         <label htmlFor="category"> Category  </label>
         <input
           type="text"
@@ -90,6 +95,9 @@ function UploadImage() {
           value={details.category}
           onChange={onChange}
         />
+
+        </div>
+        <div className={styles.email}>
         <label htmlFor="desc"> Description </label>
         <input
           type="text"
@@ -97,14 +105,17 @@ function UploadImage() {
           value={details.description}
           onChange={onChange}
         />
+        </div>
+        <div className={styles.email}>
         <label htmlFor="file"> Image </label>
         <input
           type="file"
-          onChange={(e) => setUrl(e.target.files[0])}
+          onChange={(e) =>  setUrl(e.target.files[0])}
           accept="image/*"
         />
-        <img src={url ? URL.createObjectURL(url) : ""} alt="" />
-        <button type="submit"> Submit </button>
+        </div>
+       
+        <button className={styles.button} type="submit"> Submit </button>
       </form>
     </div>
     <Footer/>
