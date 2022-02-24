@@ -78,6 +78,7 @@ export default function Home({ data }) {
         {data.map((elm) => {
           return (
             <>
+            <div className={styles.render}>
               <img
                 key={elm._id}
                 className={styles.renderimg}
@@ -91,6 +92,7 @@ export default function Home({ data }) {
                   <a className={styles.download}>Download</a>
                 </Link>
               </button>
+              </div>
             </>
           );
         })}
