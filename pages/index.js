@@ -1,34 +1,18 @@
 import Head from "next/head";
 import Image from "next/image";
-import { useState, useContext } from "react";
+
 import Navbar from "../Components/Navbar";
 import baseUrl from "../mongodb/baseUrl";
 import styles from "../styles/Home.module.css";
 import camera from "../images/camera.png";
-import { useRouter } from "next/router";
+
 import Link from "next/link";
-import Context from "../context/UserApi/Context";
+
 import Footer from "../Components/Footer";
 
 export default function Home({ data }) {
 
-  const holder = useContext(Context);
-  const router = useRouter();
-  const [term, setTerm] = useState("");
-  const searchUserQuery = async (e) => {
-    e.preventDefault();
-    const fetchReq = await fetch(`${baseUrl}/api/searchimage`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        searchterm: term.toLowerCase(),
-      }),
-    });
-    const response = await fetchReq.json();
-    
-  };
+ 
  
 
   return (
@@ -42,20 +26,14 @@ export default function Home({ data }) {
       <Navbar />
       <div className={styles.searchbox}>
         <form
-          onSubmit={(e) => {
-            searchUserQuery(e);
-          }}
+          
         >
           <input
         
-            className={styles.input}
+           
             type="text"
             placeholder="Sorry Not For Real Searching Because of less images in this web"
-            value={term}
-            name="search"
-            id="search"
-            onChange={(e) => setTerm(e.target.value)}
-            onSubmit={searchUserQuery}
+           
           />
           <button className={styles.submit} type="submit">
             Submit
