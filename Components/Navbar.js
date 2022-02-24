@@ -57,7 +57,7 @@ const log=await fetch(`${baseUrl}/api/User/loginuser`,{
   }
   return (
     <>
-     <div className={styles.logo}>  <Link  href=""><a>Immi<span className={styles.tag}>Grow</span> </a></Link></div>
+     <div className={styles.logo}>  <Link  href="/"><a>Immi<span className={styles.tag}>Grow</span> </a></Link></div>
       <nav className={styles.navmenu}>
    
         <div className={styles.upper}>

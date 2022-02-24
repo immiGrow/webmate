@@ -153,9 +153,16 @@
     }
     
     .userlog form input {
+        background-color: black;
         font-size: 1.1rem;
         height: 35px;
+        color: white;
         width: 100%;
+    }
+    
+    .userlog form input:focus {
+        background-color: black;
+        color: white;
     }
     
     .logo {

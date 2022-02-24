@@ -28,16 +28,7 @@ export default function Home({ data }) {
         <form
           
         >
-          <input
         
-           
-            type="text"
-            placeholder="Sorry Not For Real Searching Because of less images in this web"
-           
-          />
-          <button className={styles.submit} type="submit">
-            Submit
-          </button>
         </form>
       </div>
       <div className={styles.constant}>
