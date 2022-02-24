@@ -18,8 +18,8 @@ export default function Home({ data }) {
   return (
     <>
       <Head>
-        <title>ImmiGrow - The Bunch of Photos </title>
-        <meta name="description" content="ImmiGrow is the free site for uders and visitors to come and download and publish unlimited photos and use them in their website or application." />
+        <title>WebMate - The Bunch of Photos </title>
+        <meta name="description" content="WebMate is the free site for uders and visitors to come and download and publish unlimited photos and use them in their website or application." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -35,11 +35,11 @@ export default function Home({ data }) {
         <div className={styles.const}>
           <div className={styles.div1}>
             <h1 className={styles.head}>
-              ImmiGrow - The Lake of 
+              WebMate - The Lake of 
                <span className={styles.tag}> Memories</span>
             </h1>
             <p className={styles.para}>
-              <span className={styles.tag}>ImmiGrow </span>- Where many shares a
+              <span className={styles.tag}>WebMate </span>- Where many shares a
               part of their memorial <span className={styles.tag}>Day</span>
             </p>
             <Link href="/about">
